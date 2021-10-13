@@ -1,0 +1,231 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="012fbc7d-c700-4909-a873-62045e1ec9ee" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>FACT</ID>
+  <Name>FACT</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="7f1fd790-bcee-4786-a7a9-6add9c7f3e10">
+    <DataSourceViewID>OLAP1</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="e4ac6de5-489d-4681-be9f-79c31d7af282">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="08c416ff-59b6-40b2-bd6e-378bb3ddfca9">
+      <ID>MA XUAT</ID>
+      <Name>MA XUAT</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="910a297b-d4d0-48be-a437-4e50ae264ff7">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="07a8e448-32a2-4f1f-9a27-8e8bd3861e6f">
+            <TableID>dbo_FACT</TableID>
+            <ColumnID>MA_XUAT</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="f7531b40-ee25-4512-91cc-e7fdc7adc21d">
+          <AttributeID>MA GIONG</AttributeID>
+          <Name>MA GIONG</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="f505e7b6-abcd-4c47-b710-4d1b656ee891">
+          <AttributeID>NGAY</AttributeID>
+          <Name>NGAY</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="55f6adca-1c7b-4067-aeda-cde626c4603a">
+          <AttributeID>NAM</AttributeID>
+          <Name>NAM</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="aa61f1f7-6251-49cc-a448-fab224c45580">
+          <AttributeID>MA TRANGTRAI</AttributeID>
+          <Name>MA TRANGTRAI</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="78e2c48c-529e-4bb1-9d9a-b408e45af48a">
+          <AttributeID>MA CUA HANG</AttributeID>
+          <Name>MA CUA HANG</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="5da3eb76-c2af-407a-9b09-ca451e2369f4">
+          <AttributeID>MA KHUVUC</AttributeID>
+          <Name>MA KHUVUC</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="37e5223e-ad28-4458-b343-58efdf463198">
+          <AttributeID>THANG</AttributeID>
+          <Name>THANG</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="39640c8a-e733-4522-8fe9-1f1d33f7a1c4">
+      <ID>MA GIONG</ID>
+      <Name>MA GIONG</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="5875d249-8c7c-4a5a-9ac2-91afaa6e889e">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a115624c-55b6-4a42-a4ca-2cca2f30dce6">
+            <TableID>dbo_FACT</TableID>
+            <ColumnID>MA_GIONG</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="a340be89-0b98-400f-b4db-94d91d5665c0">
+      <ID>NGAY</ID>
+      <Name>NGAY</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="7c27c215-39b0-4356-a007-e0e27269ca24">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="3bb48bd8-7617-41cc-bf3e-492228fdac35">
+            <TableID>dbo_FACT</TableID>
+            <ColumnID>NGAY</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="f624503c-f91d-42ee-96af-c438303c77b5">
+      <ID>NAM</ID>
+      <Name>NAM</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="94e92b80-4b93-4a82-ae47-b847697eb08f">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="2785989c-2947-4884-a59a-591ca94a1a62">
+            <TableID>dbo_FACT</TableID>
+            <ColumnID>NAM</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="663ba625-3810-4f04-9bc1-64301da2df0d">
+      <ID>MA TRANGTRAI</ID>
+      <Name>MA TRANGTRAI</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="205e6d2c-4e89-4e09-8243-d8327bf1c20f">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="bb46ad30-0f21-4aaa-9d87-08f578d2ec92">
+            <TableID>dbo_FACT</TableID>
+            <ColumnID>MA_TRANGTRAI</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="ba4e86ea-d383-437f-9a01-dc370e6b7237">
+      <ID>MA CUA HANG</ID>
+      <Name>MA CUA HANG</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="152166be-27d8-429c-bbc8-1f83f11bd4fd">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="de757a03-1736-47e8-87b0-a33bdb8a6969">
+            <TableID>dbo_FACT</TableID>
+            <ColumnID>MA_CUA_HANG</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="7e160d37-d3d7-4938-b800-3bbd91020095">
+      <ID>MA KHUVUC</ID>
+      <Name>MA KHUVUC</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="97234037-5c01-4835-abd7-ad0c2dabb46d">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9e8e3499-10a2-49f1-b310-1da305884cec">
+            <TableID>dbo_FACT</TableID>
+            <ColumnID>MA_KHUVUC</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="5270da4b-87be-4bc6-a227-f6caaf8893f6">
+      <ID>THANG</ID>
+      <Name>THANG</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="75d43967-5062-415e-bcc1-6f110dd323a6">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="281f52b2-8382-4923-a467-1cafe40ccafa">
+            <TableID>dbo_FACT</TableID>
+            <ColumnID>THANG</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

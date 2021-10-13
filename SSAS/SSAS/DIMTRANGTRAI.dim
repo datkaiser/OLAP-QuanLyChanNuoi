@@ -1,0 +1,217 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="51d4ae57-97b5-4025-841e-9ad0a217577f" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>DIMTRANGTRAI</ID>
+  <Name>DIMTRANGTRAI</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="2" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1113" scrolltop="-6901" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="5800" y="16468" backcolor="16185078" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="010000009001b0300100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="DIMTRANGTRAI" left="20" top="0" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="3535" height="2667" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000cf0d00006b0a0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_DIMTRANGTRAI" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-1113</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-6901</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="31648a54-6942-4e30-a953-b094162207f1">
+    <DataSourceViewID>OLAP</DataSourceViewID>
+  </Source>
+  <UnknownMember>Visible</UnknownMember>
+  <ErrorConfiguration dwd:design-time-name="e6f6201a-e5be-4ef0-8175-fbdb3781614b">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="84c81af6-6d6d-442e-a2fd-deb1ccdd93ea">
+      <ID>MA TRANGTRAI</ID>
+      <Name>MA TRANGTRAI</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="0adb9ddd-74c5-433c-aa45-da71fcbb6427">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <NullProcessing>UnknownMember</NullProcessing>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d15781b3-ceca-4e8e-8b5e-db73e8171be0">
+            <TableID>dbo_DIMTRANGTRAI</TableID>
+            <ColumnID>MA_TRANGTRAI</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="3385c3b3-4166-43dc-8cb3-b74c3c8c668c">
+          <AttributeID>TEN TRANGTRAI</AttributeID>
+          <Name>TEN TRANGTRAI</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="ef1430e6-6701-4825-bdbc-0ce3ed6900a3">
+          <AttributeID>MA KHUVUC</AttributeID>
+          <Name>MA KHUVUC</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="a111cb9c-c682-46e1-a076-1f6e25dc6767">
+          <AttributeID>DIACHI</AttributeID>
+          <Name>DIACHI</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="24a9e1c0-37b7-4578-8018-f2d263c65163">
+          <AttributeID>SOCHUONG</AttributeID>
+          <Name>SOCHUONG</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="94873773-79e7-4b60-8f89-a1994d1882db">
+      <ID>TEN TRANGTRAI</ID>
+      <Name>TEN TRANGTRAI</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="dc299bde-08f9-490b-bb63-a722715ea7c7">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="e163a0cf-635d-47fa-9a47-c8d27e334a93">
+            <TableID>dbo_DIMTRANGTRAI</TableID>
+            <ColumnID>TEN_TRANGTRAI</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="2cabfe27-844e-4f73-9a40-447e6b3f680e">
+      <ID>MA KHUVUC</ID>
+      <Name>MA KHUVUC</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="a907fccc-0ba7-46a0-8729-fcad8c2ee61e">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="82737e87-6d2f-4dbc-aedf-4672646a299d">
+            <TableID>dbo_DIMTRANGTRAI</TableID>
+            <ColumnID>MA_KHUVUC</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="75ec0682-10c5-4f44-9d29-130ed0bf4ca3">
+      <ID>DIACHI</ID>
+      <Name>DIACHI</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2745febe-b8f4-4bce-8a3e-57bf0d20e93d">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b383e86b-126e-48c8-8138-8ac987186ac2">
+            <TableID>dbo_DIMTRANGTRAI</TableID>
+            <ColumnID>DIACHI</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="71e8b0b1-a4d3-4189-8702-d36e2ffcf4e8">
+      <ID>SOCHUONG</ID>
+      <Name>SOCHUONG</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="dc944061-157b-45d0-9035-d922b7c0400e">
+          <DataType>Double</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="78bf9d5d-6e66-4957-b356-51414e8349b4">
+            <TableID>dbo_DIMTRANGTRAI</TableID>
+            <ColumnID>SOCHUONG</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <Hierarchies>
+    <Hierarchy dwd:design-time-name="6468da7b-6f9d-48de-b18f-80cf359fb341">
+      <ID>Hierarchy</ID>
+      <Name>Hierarchy</Name>
+      <Levels>
+        <Level dwd:design-time-name="24e48061-4ec4-4de0-bf04-f070dfae84dc">
+          <ID>MA TRANGTRAI</ID>
+          <Name>MA TRANGTRAI</Name>
+          <SourceAttributeID>MA TRANGTRAI</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="2a45fe5a-742d-493a-a85c-0b3f317bbc13">
+          <ID>SOCHUONG</ID>
+          <Name>SOCHUONG</Name>
+          <SourceAttributeID>SOCHUONG</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="22e0ccdf-e41a-427a-9bd5-b3f5ecbb268d">
+          <ID>MA KHUVUC</ID>
+          <Name>MA KHUVUC</Name>
+          <SourceAttributeID>MA KHUVUC</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="7576c8e5-f6b9-416c-ba37-d9c28c3d83de">
+          <ID>DIACHI</ID>
+          <Name>DIACHI</Name>
+          <SourceAttributeID>DIACHI</SourceAttributeID>
+        </Level>
+        <Level dwd:design-time-name="9b6ac7ad-4ccd-4b75-a61a-e6597a5d1cdc">
+          <ID>TEN TRANGTRAI</ID>
+          <Name>TEN TRANGTRAI</Name>
+          <SourceAttributeID>TEN TRANGTRAI</SourceAttributeID>
+        </Level>
+      </Levels>
+    </Hierarchy>
+  </Hierarchies>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>

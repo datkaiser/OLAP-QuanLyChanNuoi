@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="OLAP1" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=OLAP1;Integrated Security=True" SettingsObjectName="OLAP.Properties.Settings" SettingsPropertyName="OLAP1ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CUAHANG" Member="CUAHANGs">
+    <Type Name="CUAHANG">
+      <Column Name="MA_CUA_HANG" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TEN_CUA_HANG" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DIACHI" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MA_KHUVUC" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Association Name="CUAHANG_FACT" Member="FACTs" ThisKey="MA_CUA_HANG" OtherKey="MA_CUA_HANG" Type="FACT" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FACT" Member="FACTs">
+    <Type Name="FACT">
+      <Column Name="MA_XUAT" Type="System.String" DbType="NVarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MA_GIONG" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MA_TRANGTRAI" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="MA_KHUVUC" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SANLUONG" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="DONVITINH" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="TONGTIEN" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="NGAY" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="THANG" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="NAM" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="MA_CUA_HANG" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Association Name="CUAHANG_FACT" Member="CUAHANG" ThisKey="MA_CUA_HANG" OtherKey="MA_CUA_HANG" Type="CUAHANG" IsForeignKey="true" />
+      <Association Name="GIONG_FACT" Member="GIONG" ThisKey="MA_GIONG" OtherKey="MA_GIONG" Type="GIONG" IsForeignKey="true" />
+      <Association Name="KHUVUC_FACT" Member="KHUVUC" ThisKey="MA_KHUVUC" OtherKey="MA_KHUVUC" Type="KHUVUC" IsForeignKey="true" />
+      <Association Name="NAM_FACT" Member="NAM1" ThisKey="NAM" OtherKey="MANAM" Type="NAM" IsForeignKey="true" />
+      <Association Name="NGAY_FACT" Member="NGAY1" ThisKey="NGAY" OtherKey="MANGAY" Type="NGAY" IsForeignKey="true" />
+      <Association Name="THANG_FACT" Member="THANG1" ThisKey="THANG" OtherKey="MATHANG" Type="THANG" IsForeignKey="true" />
+      <Association Name="TRANGTRAI_FACT" Member="TRANGTRAI" ThisKey="MA_TRANGTRAI" OtherKey="MA_TRANGTRAI" Type="TRANGTRAI" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.GIONG" Member="GIONGs">
+    <Type Name="GIONG">
+      <Column Name="MA_GIONG" Type="System.String" DbType="NVarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TEN_GIONG" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="GIONG_FACT" Member="FACTs" ThisKey="MA_GIONG" OtherKey="MA_GIONG" Type="FACT" />
+    </Type>
+  </Table>
+  <Table Name="dbo.KHUVUC" Member="KHUVUCs">
+    <Type Name="KHUVUC">
+      <Column Name="MA_KHUVUC" Type="System.String" DbType="NVarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TEN_KHUVUC" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="KHUVUC_FACT" Member="FACTs" ThisKey="MA_KHUVUC" OtherKey="MA_KHUVUC" Type="FACT" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NAM" Member="NAMs">
+    <Type Name="NAM">
+      <Column Name="MANAM" Type="System.String" DbType="NVarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NAM" Member="NAM1" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="NAM_FACT" Member="FACTs" ThisKey="MANAM" OtherKey="NAM" Type="FACT" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NGAY" Member="NGAYs">
+    <Type Name="NGAY">
+      <Column Name="MANGAY" Type="System.String" DbType="NVarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NGAY" Member="NGAY1" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="NGAY_FACT" Member="FACTs" ThisKey="MANGAY" OtherKey="NGAY" Type="FACT" />
+    </Type>
+  </Table>
+  <Table Name="dbo.THANG" Member="THANGs">
+    <Type Name="THANG">
+      <Column Name="MATHANG" Type="System.String" DbType="NVarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="THANG" Member="THANG1" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Association Name="THANG_FACT" Member="FACTs" ThisKey="MATHANG" OtherKey="THANG" Type="FACT" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TRANGTRAI" Member="TRANGTRAIs">
+    <Type Name="TRANGTRAI">
+      <Column Name="MA_TRANGTRAI" Type="System.String" DbType="NVarChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TEN_TRANGTRAI" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MA_KHUVUC" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="DIACHI" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SOCHUONG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TRANGTRAI_FACT" Member="FACTs" ThisKey="MA_TRANGTRAI" OtherKey="MA_TRANGTRAI" Type="FACT" />
+    </Type>
+  </Table>
+</Database>

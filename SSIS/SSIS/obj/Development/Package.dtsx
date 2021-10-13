@@ -1,0 +1,2815 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="4/17/2021 9:36:38 AM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="DESKTOP-64846TB"
+  DTS:CreatorName="DESKTOP-64846TB\ASUS"
+  DTS:DTSID="{78D58B5E-52CC-474C-B5E6-B6F7BDE4C5BA}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.5583.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="1"
+  DTS:VersionGUID="{AC19027B-F8C2-4D3A-B5A0-2AD3EEEBEA9E}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Excel Connection Manager]"
+      DTS:CreationName="EXCEL"
+      DTS:DTSID="{CD0FF514-F7D1-4785-BCC6-6399FFB392AE}"
+      DTS:ObjectName="Excel Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\Users\ASUS\Desktop\OLAP\OLAP.xlsx;Extended Properties=&quot;EXCEL 8.0;HDR=YES&quot;;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.OLAP]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{C9CE478A-27F1-4B2F-BFBA-BA76DCB0AA73}"
+      DTS:ObjectName="LocalHost.OLAP">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=OLAP;Integrated Security=True;Application Name=SSIS-Package-{C9CE478A-27F1-4B2F-BFBA-BA76DCB0AA73}LocalHost.OLAP;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{B8722F1E-7421-44EB-A769-94203B0B52D5}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Data Flow Task\DIMCUAHANG"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="DIMCUAHANG"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version= 11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">"DIMCUAHANG"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.SqlServer.Dts.Pipeline.ADONETDestination, Microsoft.SqlServer.ADONETDest, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\DIMCUAHANG.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.OLAP]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.OLAP]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\DIMCUAHANG.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIMCUAHANG.Inputs[ADO NET Destination Input].Columns[MA_CUA_HANG]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="MA_CUA_HANG"
+                      externalMetadataColumnId="Package\Data Flow Task\DIMCUAHANG.Inputs[ADO NET Destination Input].ExternalColumns[MA_CUA_HANG]"
+                      lineageId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Output].Columns[MA_CUA_HANG]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIMCUAHANG.Inputs[ADO NET Destination Input].Columns[TEN_CUA_HANG]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TEN_CUA_HANG"
+                      externalMetadataColumnId="Package\Data Flow Task\DIMCUAHANG.Inputs[ADO NET Destination Input].ExternalColumns[TEN_CUA_HANG]"
+                      lineageId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Output].Columns[TEN_CUA_HANG]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIMCUAHANG.Inputs[ADO NET Destination Input].Columns[DIACHI]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DIACHI"
+                      externalMetadataColumnId="Package\Data Flow Task\DIMCUAHANG.Inputs[ADO NET Destination Input].ExternalColumns[DIACHI]"
+                      lineageId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Output].Columns[DIACHI]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIMCUAHANG.Inputs[ADO NET Destination Input].Columns[MA_KHUVUC]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="MA_KHUVUC"
+                      externalMetadataColumnId="Package\Data Flow Task\DIMCUAHANG.Inputs[ADO NET Destination Input].ExternalColumns[MA_KHUVUC]"
+                      lineageId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Output].Columns[MA_KHUVUC]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIMCUAHANG.Inputs[ADO NET Destination Input].ExternalColumns[MA_CUA_HANG]"
+                      dataType="wstr"
+                      length="255"
+                      name="MA_CUA_HANG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIMCUAHANG.Inputs[ADO NET Destination Input].ExternalColumns[TEN_CUA_HANG]"
+                      dataType="wstr"
+                      length="255"
+                      name="TEN_CUA_HANG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIMCUAHANG.Inputs[ADO NET Destination Input].ExternalColumns[DIACHI]"
+                      dataType="wstr"
+                      length="255"
+                      name="DIACHI" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIMCUAHANG.Inputs[ADO NET Destination Input].ExternalColumns[MA_KHUVUC]"
+                      dataType="wstr"
+                      length="255"
+                      name="MA_KHUVUC" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DIMCUAHANG.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\DIMCUAHANG.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DIMCUAHANG.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DIMCUAHANG.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DIMCUAHANG.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DIMCUAHANG.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\DIMGIONG"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="DIMGIONG"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version= 11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">"DIMGIONG"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.SqlServer.Dts.Pipeline.ADONETDestination, Microsoft.SqlServer.ADONETDest, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\DIMGIONG.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.OLAP]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.OLAP]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\DIMGIONG.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIMGIONG.Inputs[ADO NET Destination Input].Columns[MA_GIONG]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="MA_GIONG"
+                      externalMetadataColumnId="Package\Data Flow Task\DIMGIONG.Inputs[ADO NET Destination Input].ExternalColumns[MA_GIONG]"
+                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[MA_GIONG]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIMGIONG.Inputs[ADO NET Destination Input].Columns[TEN_GIONG]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TEN_GIONG"
+                      externalMetadataColumnId="Package\Data Flow Task\DIMGIONG.Inputs[ADO NET Destination Input].ExternalColumns[TEN_GIONG]"
+                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[TEN_GIONG]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIMGIONG.Inputs[ADO NET Destination Input].ExternalColumns[MA_GIONG]"
+                      dataType="wstr"
+                      length="255"
+                      name="MA_GIONG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIMGIONG.Inputs[ADO NET Destination Input].ExternalColumns[TEN_GIONG]"
+                      dataType="wstr"
+                      length="255"
+                      name="TEN_GIONG" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DIMGIONG.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\DIMGIONG.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DIMGIONG.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DIMGIONG.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DIMGIONG.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DIMGIONG.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\DIMKHUVUC"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="DIMKHUVUC"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version= 11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">"DIMKHUVUC"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.SqlServer.Dts.Pipeline.ADONETDestination, Microsoft.SqlServer.ADONETDest, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\DIMKHUVUC.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.OLAP]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.OLAP]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\DIMKHUVUC.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIMKHUVUC.Inputs[ADO NET Destination Input].Columns[MA_KHUVUC]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="MA_KHUVUC"
+                      externalMetadataColumnId="Package\Data Flow Task\DIMKHUVUC.Inputs[ADO NET Destination Input].ExternalColumns[MA_KHUVUC]"
+                      lineageId="Package\Data Flow Task\Excel Source 6.Outputs[Excel Source Output].Columns[MA_KHUVUC]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIMKHUVUC.Inputs[ADO NET Destination Input].Columns[TEN_KHUVUC]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TEN_KHUVUC"
+                      externalMetadataColumnId="Package\Data Flow Task\DIMKHUVUC.Inputs[ADO NET Destination Input].ExternalColumns[TEN_KHUVUC]"
+                      lineageId="Package\Data Flow Task\Excel Source 6.Outputs[Excel Source Output].Columns[TEN_KHUVUC]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIMKHUVUC.Inputs[ADO NET Destination Input].ExternalColumns[MA_KHUVUC]"
+                      dataType="wstr"
+                      length="255"
+                      name="MA_KHUVUC" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIMKHUVUC.Inputs[ADO NET Destination Input].ExternalColumns[TEN_KHUVUC]"
+                      dataType="wstr"
+                      length="255"
+                      name="TEN_KHUVUC" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DIMKHUVUC.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\DIMKHUVUC.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DIMKHUVUC.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DIMKHUVUC.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DIMKHUVUC.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DIMKHUVUC.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\DIMNAM"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="DIMNAM"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version= 11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">"DIMNAM"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.SqlServer.Dts.Pipeline.ADONETDestination, Microsoft.SqlServer.ADONETDest, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\DIMNAM.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.OLAP]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.OLAP]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\DIMNAM.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIMNAM.Inputs[ADO NET Destination Input].Columns[MANAM]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="MANAM"
+                      externalMetadataColumnId="Package\Data Flow Task\DIMNAM.Inputs[ADO NET Destination Input].ExternalColumns[MANAM]"
+                      lineageId="Package\Data Flow Task\Excel Source 3.Outputs[Excel Source Output].Columns[MANAM]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIMNAM.Inputs[ADO NET Destination Input].Columns[NAM]"
+                      cachedDataType="r8"
+                      cachedName="NAM"
+                      externalMetadataColumnId="Package\Data Flow Task\DIMNAM.Inputs[ADO NET Destination Input].ExternalColumns[NAM]"
+                      lineageId="Package\Data Flow Task\Excel Source 3.Outputs[Excel Source Output].Columns[NAM]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIMNAM.Inputs[ADO NET Destination Input].ExternalColumns[MANAM]"
+                      dataType="wstr"
+                      length="255"
+                      name="MANAM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIMNAM.Inputs[ADO NET Destination Input].ExternalColumns[NAM]"
+                      dataType="r8"
+                      name="NAM" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DIMNAM.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\DIMNAM.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DIMNAM.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DIMNAM.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DIMNAM.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DIMNAM.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\DIMNGAY"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="DIMNGAY"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version= 11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">"DIMNGAY"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.SqlServer.Dts.Pipeline.ADONETDestination, Microsoft.SqlServer.ADONETDest, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\DIMNGAY.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.OLAP]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.OLAP]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\DIMNGAY.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIMNGAY.Inputs[ADO NET Destination Input].Columns[MANGAY]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="MANGAY"
+                      externalMetadataColumnId="Package\Data Flow Task\DIMNGAY.Inputs[ADO NET Destination Input].ExternalColumns[MANGAY]"
+                      lineageId="Package\Data Flow Task\Excel Source 1.Outputs[Excel Source Output].Columns[MANGAY]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIMNGAY.Inputs[ADO NET Destination Input].Columns[NGAY]"
+                      cachedDataType="r8"
+                      cachedName="NGAY"
+                      externalMetadataColumnId="Package\Data Flow Task\DIMNGAY.Inputs[ADO NET Destination Input].ExternalColumns[NGAY]"
+                      lineageId="Package\Data Flow Task\Excel Source 1.Outputs[Excel Source Output].Columns[NGAY]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIMNGAY.Inputs[ADO NET Destination Input].ExternalColumns[MANGAY]"
+                      dataType="wstr"
+                      length="255"
+                      name="MANGAY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIMNGAY.Inputs[ADO NET Destination Input].ExternalColumns[NGAY]"
+                      dataType="r8"
+                      name="NGAY" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DIMNGAY.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\DIMNGAY.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DIMNGAY.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DIMNGAY.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DIMNGAY.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DIMNGAY.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\DIMTHANG"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="DIMTHANG"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version= 11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">"DIMTHANG"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.SqlServer.Dts.Pipeline.ADONETDestination, Microsoft.SqlServer.ADONETDest, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\DIMTHANG.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.OLAP]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.OLAP]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\DIMTHANG.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIMTHANG.Inputs[ADO NET Destination Input].Columns[MATHANG]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="MATHANG"
+                      externalMetadataColumnId="Package\Data Flow Task\DIMTHANG.Inputs[ADO NET Destination Input].ExternalColumns[MATHANG]"
+                      lineageId="Package\Data Flow Task\Excel Source 2.Outputs[Excel Source Output].Columns[MATHANG]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIMTHANG.Inputs[ADO NET Destination Input].Columns[THANG]"
+                      cachedDataType="r8"
+                      cachedName="THANG"
+                      externalMetadataColumnId="Package\Data Flow Task\DIMTHANG.Inputs[ADO NET Destination Input].ExternalColumns[THANG]"
+                      lineageId="Package\Data Flow Task\Excel Source 2.Outputs[Excel Source Output].Columns[THANG]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIMTHANG.Inputs[ADO NET Destination Input].ExternalColumns[MATHANG]"
+                      dataType="wstr"
+                      length="255"
+                      name="MATHANG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIMTHANG.Inputs[ADO NET Destination Input].ExternalColumns[THANG]"
+                      dataType="r8"
+                      name="THANG" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DIMTHANG.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\DIMTHANG.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DIMTHANG.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DIMTHANG.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DIMTHANG.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DIMTHANG.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\DIMTRANGTRAI"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="DIMTRANGTRAI"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version= 11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">"DIMTRANGTRAI"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.SqlServer.Dts.Pipeline.ADONETDestination, Microsoft.SqlServer.ADONETDest, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\DIMTRANGTRAI.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.OLAP]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.OLAP]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\DIMTRANGTRAI.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIMTRANGTRAI.Inputs[ADO NET Destination Input].Columns[MA_TRANGTRAI]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="MA_TRANGTRAI"
+                      externalMetadataColumnId="Package\Data Flow Task\DIMTRANGTRAI.Inputs[ADO NET Destination Input].ExternalColumns[MA_TRANGTRAI]"
+                      lineageId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output].Columns[MA_TRANGTRAI]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIMTRANGTRAI.Inputs[ADO NET Destination Input].Columns[TEN_TRANGTRAI]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="TEN_TRANGTRAI"
+                      externalMetadataColumnId="Package\Data Flow Task\DIMTRANGTRAI.Inputs[ADO NET Destination Input].ExternalColumns[TEN_TRANGTRAI]"
+                      lineageId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output].Columns[TEN_TRANGTRAI]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIMTRANGTRAI.Inputs[ADO NET Destination Input].Columns[MA_KHUVUC]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="MA_KHUVUC"
+                      externalMetadataColumnId="Package\Data Flow Task\DIMTRANGTRAI.Inputs[ADO NET Destination Input].ExternalColumns[MA_KHUVUC]"
+                      lineageId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output].Columns[MA_KHUVUC]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIMTRANGTRAI.Inputs[ADO NET Destination Input].Columns[DIACHI]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DIACHI"
+                      externalMetadataColumnId="Package\Data Flow Task\DIMTRANGTRAI.Inputs[ADO NET Destination Input].ExternalColumns[DIACHI]"
+                      lineageId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output].Columns[DIACHI]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\DIMTRANGTRAI.Inputs[ADO NET Destination Input].Columns[SOCHUONG]"
+                      cachedDataType="r8"
+                      cachedName="SOCHUONG"
+                      externalMetadataColumnId="Package\Data Flow Task\DIMTRANGTRAI.Inputs[ADO NET Destination Input].ExternalColumns[SOCHUONG]"
+                      lineageId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output].Columns[SOCHUONG]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIMTRANGTRAI.Inputs[ADO NET Destination Input].ExternalColumns[MA_TRANGTRAI]"
+                      dataType="wstr"
+                      length="255"
+                      name="MA_TRANGTRAI" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIMTRANGTRAI.Inputs[ADO NET Destination Input].ExternalColumns[TEN_TRANGTRAI]"
+                      dataType="wstr"
+                      length="255"
+                      name="TEN_TRANGTRAI" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIMTRANGTRAI.Inputs[ADO NET Destination Input].ExternalColumns[MA_KHUVUC]"
+                      dataType="wstr"
+                      length="255"
+                      name="MA_KHUVUC" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIMTRANGTRAI.Inputs[ADO NET Destination Input].ExternalColumns[DIACHI]"
+                      dataType="wstr"
+                      length="255"
+                      name="DIACHI" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\DIMTRANGTRAI.Inputs[ADO NET Destination Input].ExternalColumns[SOCHUONG]"
+                      dataType="r8"
+                      name="SOCHUONG" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\DIMTRANGTRAI.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\DIMTRANGTRAI.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\DIMTRANGTRAI.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DIMTRANGTRAI.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\DIMTRANGTRAI.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\DIMTRANGTRAI.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Excel Source"
+              componentClassID="{8C084929-27D1-479F-9641-ABB7CDADF1AC}"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">GIONG$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Excel Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[MA_GIONG]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[MA_GIONG]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[MA_GIONG]"
+                      name="MA_GIONG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[TEN_GIONG]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[TEN_GIONG]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].Columns[TEN_GIONG]"
+                      name="TEN_GIONG"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[MA_GIONG]"
+                      dataType="wstr"
+                      length="255"
+                      name="MA_GIONG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output].ExternalColumns[TEN_GIONG]"
+                      dataType="wstr"
+                      length="255"
+                      name="TEN_GIONG" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[MA_GIONG]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[MA_GIONG]"
+                      name="MA_GIONG" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[TEN_GIONG]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[TEN_GIONG]"
+                      name="TEN_GIONG" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Excel Source 1"
+              componentClassID="{8C084929-27D1-479F-9641-ABB7CDADF1AC}"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source 1"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">Ngay$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Excel Source 1.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Excel Source 1.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 1.Outputs[Excel Source Output].Columns[MANGAY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 1.Outputs[Excel Source Output].ExternalColumns[MANGAY]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 1.Outputs[Excel Source Output].Columns[MANGAY]"
+                      name="MANGAY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 1.Outputs[Excel Source Output].Columns[NGAY]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 1.Outputs[Excel Source Output].ExternalColumns[NGAY]"
+                      lineageId="Package\Data Flow Task\Excel Source 1.Outputs[Excel Source Output].Columns[NGAY]"
+                      name="NGAY"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 1.Outputs[Excel Source Output].ExternalColumns[MANGAY]"
+                      dataType="wstr"
+                      length="255"
+                      name="MANGAY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 1.Outputs[Excel Source Output].ExternalColumns[NGAY]"
+                      dataType="r8"
+                      name="NGAY" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Excel Source 1.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 1.Outputs[Excel Source Error Output].Columns[MANGAY]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 1.Outputs[Excel Source Error Output].Columns[MANGAY]"
+                      name="MANGAY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 1.Outputs[Excel Source Error Output].Columns[NGAY]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Excel Source 1.Outputs[Excel Source Error Output].Columns[NGAY]"
+                      name="NGAY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 1.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Excel Source 1.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 1.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Excel Source 1.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Excel Source 2"
+              componentClassID="{8C084929-27D1-479F-9641-ABB7CDADF1AC}"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source 2"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">THANG$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Excel Source 2.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Excel Source 2.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 2.Outputs[Excel Source Output].Columns[MATHANG]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 2.Outputs[Excel Source Output].ExternalColumns[MATHANG]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 2.Outputs[Excel Source Output].Columns[MATHANG]"
+                      name="MATHANG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 2.Outputs[Excel Source Output].Columns[THANG]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 2.Outputs[Excel Source Output].ExternalColumns[THANG]"
+                      lineageId="Package\Data Flow Task\Excel Source 2.Outputs[Excel Source Output].Columns[THANG]"
+                      name="THANG"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 2.Outputs[Excel Source Output].ExternalColumns[MATHANG]"
+                      dataType="wstr"
+                      length="255"
+                      name="MATHANG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 2.Outputs[Excel Source Output].ExternalColumns[THANG]"
+                      dataType="r8"
+                      name="THANG" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Excel Source 2.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 2.Outputs[Excel Source Error Output].Columns[MATHANG]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 2.Outputs[Excel Source Error Output].Columns[MATHANG]"
+                      name="MATHANG" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 2.Outputs[Excel Source Error Output].Columns[THANG]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Excel Source 2.Outputs[Excel Source Error Output].Columns[THANG]"
+                      name="THANG" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 2.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Excel Source 2.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 2.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Excel Source 2.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Excel Source 3"
+              componentClassID="{8C084929-27D1-479F-9641-ABB7CDADF1AC}"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source 3"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">NAM$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Excel Source 3.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Excel Source 3.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 3.Outputs[Excel Source Output].Columns[MANAM]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 3.Outputs[Excel Source Output].ExternalColumns[MANAM]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 3.Outputs[Excel Source Output].Columns[MANAM]"
+                      name="MANAM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 3.Outputs[Excel Source Output].Columns[NAM]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 3.Outputs[Excel Source Output].ExternalColumns[NAM]"
+                      lineageId="Package\Data Flow Task\Excel Source 3.Outputs[Excel Source Output].Columns[NAM]"
+                      name="NAM"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 3.Outputs[Excel Source Output].ExternalColumns[MANAM]"
+                      dataType="wstr"
+                      length="255"
+                      name="MANAM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 3.Outputs[Excel Source Output].ExternalColumns[NAM]"
+                      dataType="r8"
+                      name="NAM" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Excel Source 3.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 3.Outputs[Excel Source Error Output].Columns[MANAM]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 3.Outputs[Excel Source Error Output].Columns[MANAM]"
+                      name="MANAM" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 3.Outputs[Excel Source Error Output].Columns[NAM]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Excel Source 3.Outputs[Excel Source Error Output].Columns[NAM]"
+                      name="NAM" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 3.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Excel Source 3.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 3.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Excel Source 3.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Excel Source 4"
+              componentClassID="{8C084929-27D1-479F-9641-ABB7CDADF1AC}"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source 4"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">TRANGTRAI$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Excel Source 4.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output].Columns[MA_TRANGTRAI]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output].ExternalColumns[MA_TRANGTRAI]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output].Columns[MA_TRANGTRAI]"
+                      name="MA_TRANGTRAI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output].Columns[TEN_TRANGTRAI]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output].ExternalColumns[TEN_TRANGTRAI]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output].Columns[TEN_TRANGTRAI]"
+                      name="TEN_TRANGTRAI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output].Columns[MA_KHUVUC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output].ExternalColumns[MA_KHUVUC]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output].Columns[MA_KHUVUC]"
+                      name="MA_KHUVUC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output].Columns[DIACHI]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output].ExternalColumns[DIACHI]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output].Columns[DIACHI]"
+                      name="DIACHI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output].Columns[SOCHUONG]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output].ExternalColumns[SOCHUONG]"
+                      lineageId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output].Columns[SOCHUONG]"
+                      name="SOCHUONG"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output].ExternalColumns[MA_TRANGTRAI]"
+                      dataType="wstr"
+                      length="255"
+                      name="MA_TRANGTRAI" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output].ExternalColumns[TEN_TRANGTRAI]"
+                      dataType="wstr"
+                      length="255"
+                      name="TEN_TRANGTRAI" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output].ExternalColumns[MA_KHUVUC]"
+                      dataType="wstr"
+                      length="255"
+                      name="MA_KHUVUC" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output].ExternalColumns[DIACHI]"
+                      dataType="wstr"
+                      length="255"
+                      name="DIACHI" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output].ExternalColumns[SOCHUONG]"
+                      dataType="r8"
+                      name="SOCHUONG" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Error Output].Columns[MA_TRANGTRAI]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Error Output].Columns[MA_TRANGTRAI]"
+                      name="MA_TRANGTRAI" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Error Output].Columns[TEN_TRANGTRAI]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Error Output].Columns[TEN_TRANGTRAI]"
+                      name="TEN_TRANGTRAI" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Error Output].Columns[MA_KHUVUC]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Error Output].Columns[MA_KHUVUC]"
+                      name="MA_KHUVUC" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Error Output].Columns[DIACHI]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Error Output].Columns[DIACHI]"
+                      name="DIACHI" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Error Output].Columns[SOCHUONG]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Error Output].Columns[SOCHUONG]"
+                      name="SOCHUONG" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Excel Source 5"
+              componentClassID="{8C084929-27D1-479F-9641-ABB7CDADF1AC}"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source 5"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">CUAHANG$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Excel Source 5.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Output].Columns[MA_CUA_HANG]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Output].ExternalColumns[MA_CUA_HANG]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Output].Columns[MA_CUA_HANG]"
+                      name="MA_CUA_HANG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Output].Columns[TEN_CUA_HANG]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Output].ExternalColumns[TEN_CUA_HANG]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Output].Columns[TEN_CUA_HANG]"
+                      name="TEN_CUA_HANG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Output].Columns[DIACHI]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Output].ExternalColumns[DIACHI]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Output].Columns[DIACHI]"
+                      name="DIACHI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Output].Columns[MA_KHUVUC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Output].ExternalColumns[MA_KHUVUC]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Output].Columns[MA_KHUVUC]"
+                      name="MA_KHUVUC"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Output].ExternalColumns[MA_CUA_HANG]"
+                      dataType="wstr"
+                      length="255"
+                      name="MA_CUA_HANG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Output].ExternalColumns[TEN_CUA_HANG]"
+                      dataType="wstr"
+                      length="255"
+                      name="TEN_CUA_HANG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Output].ExternalColumns[DIACHI]"
+                      dataType="wstr"
+                      length="255"
+                      name="DIACHI" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Output].ExternalColumns[MA_KHUVUC]"
+                      dataType="wstr"
+                      length="255"
+                      name="MA_KHUVUC" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Error Output].Columns[MA_CUA_HANG]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Error Output].Columns[MA_CUA_HANG]"
+                      name="MA_CUA_HANG" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Error Output].Columns[TEN_CUA_HANG]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Error Output].Columns[TEN_CUA_HANG]"
+                      name="TEN_CUA_HANG" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Error Output].Columns[DIACHI]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Error Output].Columns[DIACHI]"
+                      name="DIACHI" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Error Output].Columns[MA_KHUVUC]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Error Output].Columns[MA_KHUVUC]"
+                      name="MA_KHUVUC" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Excel Source 6"
+              componentClassID="{8C084929-27D1-479F-9641-ABB7CDADF1AC}"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source 6"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">KHUVUC$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Excel Source 6.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Excel Source 6.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 6.Outputs[Excel Source Output].Columns[MA_KHUVUC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 6.Outputs[Excel Source Output].ExternalColumns[MA_KHUVUC]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 6.Outputs[Excel Source Output].Columns[MA_KHUVUC]"
+                      name="MA_KHUVUC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 6.Outputs[Excel Source Output].Columns[TEN_KHUVUC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 6.Outputs[Excel Source Output].ExternalColumns[TEN_KHUVUC]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 6.Outputs[Excel Source Output].Columns[TEN_KHUVUC]"
+                      name="TEN_KHUVUC"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 6.Outputs[Excel Source Output].ExternalColumns[MA_KHUVUC]"
+                      dataType="wstr"
+                      length="255"
+                      name="MA_KHUVUC" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 6.Outputs[Excel Source Output].ExternalColumns[TEN_KHUVUC]"
+                      dataType="wstr"
+                      length="255"
+                      name="TEN_KHUVUC" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Excel Source 6.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 6.Outputs[Excel Source Error Output].Columns[MA_KHUVUC]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 6.Outputs[Excel Source Error Output].Columns[MA_KHUVUC]"
+                      name="MA_KHUVUC" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 6.Outputs[Excel Source Error Output].Columns[TEN_KHUVUC]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 6.Outputs[Excel Source Error Output].Columns[TEN_KHUVUC]"
+                      name="TEN_KHUVUC" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 6.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Excel Source 6.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 6.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Excel Source 6.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\Excel Source 7"
+              componentClassID="{8C084929-27D1-479F-9641-ABB7CDADF1AC}"
+              contactInfo="Excel Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Excel Source"
+              name="Excel Source 7"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">FACT$</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mapping from parameters in the SQL command to variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\Excel Source 7.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Excel Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Excel Connection Manager]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output]"
+                  name="Excel Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[MA_XUAT]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].ExternalColumns[MA_XUAT]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[MA_XUAT]"
+                      name="MA_XUAT"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[MA_GIONG]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].ExternalColumns[MA_GIONG]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[MA_GIONG]"
+                      name="MA_GIONG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[MA_TRANGTRAI]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].ExternalColumns[MA_TRANGTRAI]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[MA_TRANGTRAI]"
+                      name="MA_TRANGTRAI"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[MA_KHUVUC]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].ExternalColumns[MA_KHUVUC]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[MA_KHUVUC]"
+                      name="MA_KHUVUC"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[MA_CUA_HANG]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].ExternalColumns[MA_CUA_HANG]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[MA_CUA_HANG]"
+                      name="MA_CUA_HANG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[NGAY]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].ExternalColumns[NGAY]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[NGAY]"
+                      name="NGAY"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[THANG]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].ExternalColumns[THANG]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[THANG]"
+                      name="THANG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[NAM]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].ExternalColumns[NAM]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[NAM]"
+                      name="NAM"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[SANLUONG]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].ExternalColumns[SANLUONG]"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[SANLUONG]"
+                      name="SANLUONG"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[DONVITINH]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].ExternalColumns[DONVITINH]"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[DONVITINH]"
+                      name="DONVITINH"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[TONGTIEN]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].ExternalColumns[TONGTIEN]"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[TONGTIEN]"
+                      name="TONGTIEN"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].ExternalColumns[MA_XUAT]"
+                      dataType="wstr"
+                      length="255"
+                      name="MA_XUAT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].ExternalColumns[MA_GIONG]"
+                      dataType="wstr"
+                      length="255"
+                      name="MA_GIONG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].ExternalColumns[MA_TRANGTRAI]"
+                      dataType="wstr"
+                      length="255"
+                      name="MA_TRANGTRAI" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].ExternalColumns[MA_KHUVUC]"
+                      dataType="wstr"
+                      length="255"
+                      name="MA_KHUVUC" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].ExternalColumns[MA_CUA_HANG]"
+                      dataType="wstr"
+                      length="255"
+                      name="MA_CUA_HANG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].ExternalColumns[NGAY]"
+                      dataType="wstr"
+                      length="255"
+                      name="NGAY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].ExternalColumns[THANG]"
+                      dataType="wstr"
+                      length="255"
+                      name="THANG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].ExternalColumns[NAM]"
+                      dataType="wstr"
+                      length="255"
+                      name="NAM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].ExternalColumns[SANLUONG]"
+                      dataType="r8"
+                      name="SANLUONG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].ExternalColumns[DONVITINH]"
+                      dataType="wstr"
+                      length="255"
+                      name="DONVITINH" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].ExternalColumns[TONGTIEN]"
+                      dataType="r8"
+                      name="TONGTIEN" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output]"
+                  isErrorOut="true"
+                  name="Excel Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output].Columns[MA_XUAT]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output].Columns[MA_XUAT]"
+                      name="MA_XUAT" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output].Columns[MA_GIONG]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output].Columns[MA_GIONG]"
+                      name="MA_GIONG" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output].Columns[MA_TRANGTRAI]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output].Columns[MA_TRANGTRAI]"
+                      name="MA_TRANGTRAI" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output].Columns[MA_KHUVUC]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output].Columns[MA_KHUVUC]"
+                      name="MA_KHUVUC" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output].Columns[MA_CUA_HANG]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output].Columns[MA_CUA_HANG]"
+                      name="MA_CUA_HANG" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output].Columns[NGAY]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output].Columns[NGAY]"
+                      name="NGAY" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output].Columns[THANG]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output].Columns[THANG]"
+                      name="THANG" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output].Columns[NAM]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output].Columns[NAM]"
+                      name="NAM" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output].Columns[SANLUONG]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output].Columns[SANLUONG]"
+                      name="SANLUONG" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output].Columns[DONVITINH]"
+                      dataType="wstr"
+                      length="255"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output].Columns[DONVITINH]"
+                      name="DONVITINH" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output].Columns[TONGTIEN]"
+                      dataType="r8"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output].Columns[TONGTIEN]"
+                      name="TONGTIEN" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Data Flow Task\FACT"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="FACT"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version= 11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">"FACT"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.SqlServer.Dts.Pipeline.ADONETDestination, Microsoft.SqlServer.ADONETDest, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Data Flow Task\FACT.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.OLAP]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.OLAP]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].Columns[MA_XUAT]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="MA_XUAT"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].ExternalColumns[MA_XUAT]"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[MA_XUAT]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].Columns[MA_GIONG]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="MA_GIONG"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].ExternalColumns[MA_GIONG]"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[MA_GIONG]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].Columns[MA_TRANGTRAI]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="MA_TRANGTRAI"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].ExternalColumns[MA_TRANGTRAI]"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[MA_TRANGTRAI]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].Columns[MA_KHUVUC]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="MA_KHUVUC"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].ExternalColumns[MA_KHUVUC]"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[MA_KHUVUC]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].Columns[MA_CUA_HANG]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="MA_CUA_HANG"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].ExternalColumns[MA_CUA_HANG]"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[MA_CUA_HANG]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].Columns[NGAY]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NGAY"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].ExternalColumns[NGAY]"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[NGAY]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].Columns[THANG]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="THANG"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].ExternalColumns[THANG]"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[THANG]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].Columns[NAM]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="NAM"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].ExternalColumns[NAM]"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[NAM]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].Columns[SANLUONG]"
+                      cachedDataType="r8"
+                      cachedName="SANLUONG"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].ExternalColumns[SANLUONG]"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[SANLUONG]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].Columns[DONVITINH]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="DONVITINH"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].ExternalColumns[DONVITINH]"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[DONVITINH]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].Columns[TONGTIEN]"
+                      cachedDataType="r8"
+                      cachedName="TONGTIEN"
+                      externalMetadataColumnId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].ExternalColumns[TONGTIEN]"
+                      lineageId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output].Columns[TONGTIEN]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].ExternalColumns[MA_XUAT]"
+                      dataType="wstr"
+                      length="255"
+                      name="MA_XUAT" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].ExternalColumns[MA_GIONG]"
+                      dataType="wstr"
+                      length="255"
+                      name="MA_GIONG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].ExternalColumns[MA_TRANGTRAI]"
+                      dataType="wstr"
+                      length="255"
+                      name="MA_TRANGTRAI" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].ExternalColumns[MA_KHUVUC]"
+                      dataType="wstr"
+                      length="255"
+                      name="MA_KHUVUC" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].ExternalColumns[MA_CUA_HANG]"
+                      dataType="wstr"
+                      length="255"
+                      name="MA_CUA_HANG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].ExternalColumns[NGAY]"
+                      dataType="wstr"
+                      length="255"
+                      name="NGAY" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].ExternalColumns[THANG]"
+                      dataType="wstr"
+                      length="255"
+                      name="THANG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].ExternalColumns[NAM]"
+                      dataType="wstr"
+                      length="255"
+                      name="NAM" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].ExternalColumns[SANLUONG]"
+                      dataType="r8"
+                      name="SANLUONG" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].ExternalColumns[DONVITINH]"
+                      dataType="wstr"
+                      length="255"
+                      name="DONVITINH" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input].ExternalColumns[TONGTIEN]"
+                      dataType="r8"
+                      name="TONGTIEN" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Data Flow Task\FACT.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Data Flow Task\FACT.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\FACT.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\FACT.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Data Flow Task\FACT.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Data Flow Task.Paths[Excel Source Output]"
+              endId="Package\Data Flow Task\DIMGIONG.Inputs[ADO NET Destination Input]"
+              name="Excel Source Output"
+              startId="Package\Data Flow Task\Excel Source.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Excel Source Output1]"
+              endId="Package\Data Flow Task\DIMNGAY.Inputs[ADO NET Destination Input]"
+              name="Excel Source Output"
+              startId="Package\Data Flow Task\Excel Source 1.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Excel Source Output2]"
+              endId="Package\Data Flow Task\DIMTHANG.Inputs[ADO NET Destination Input]"
+              name="Excel Source Output"
+              startId="Package\Data Flow Task\Excel Source 2.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Excel Source Output3]"
+              endId="Package\Data Flow Task\DIMNAM.Inputs[ADO NET Destination Input]"
+              name="Excel Source Output"
+              startId="Package\Data Flow Task\Excel Source 3.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Excel Source Output4]"
+              endId="Package\Data Flow Task\DIMTRANGTRAI.Inputs[ADO NET Destination Input]"
+              name="Excel Source Output"
+              startId="Package\Data Flow Task\Excel Source 4.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Excel Source Output5]"
+              endId="Package\Data Flow Task\DIMCUAHANG.Inputs[ADO NET Destination Input]"
+              name="Excel Source Output"
+              startId="Package\Data Flow Task\Excel Source 5.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Excel Source Output6]"
+              endId="Package\Data Flow Task\DIMKHUVUC.Inputs[ADO NET Destination Input]"
+              name="Excel Source Output"
+              startId="Package\Data Flow Task\Excel Source 6.Outputs[Excel Source Output]" />
+            <path
+              refId="Package\Data Flow Task.Paths[Excel Source Output7]"
+              endId="Package\Data Flow Task\FACT.Inputs[ADO NET Destination Input]"
+              name="Excel Source Output"
+              startId="Package\Data Flow Task\Excel Source 7.Outputs[Excel Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="150.4,41.6"
+          Id="Package\Data Flow Task"
+          TopLeft="168.571431442183,116.235295747803" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="139.2,41.6"
+          Id="Package\Data Flow Task\Excel Source"
+          TopLeft="36.5714291942363,7.95294128800759" />
+        <NodeLayout
+          Size="131.2,41.6"
+          Id="Package\Data Flow Task\DIMGIONG"
+          TopLeft="264.571433077053,18.3529414338637" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Excel Source Output]"
+          TopLeft="175.771429194236,28.7529412880076">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="88.8000038828169,10.4000001458561"
+              Start="0,0"
+              End="81.3000038828169,10.4000001458561">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="40.4000019414085,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="40.4000019414085,0"
+                    Point2="44.4000019414085,0"
+                    Point3="44.4000019414085,4" />
+                  <mssgle:LineSegment
+                    End="44.4000019414085,6.40000014585607" />
+                  <mssgle:CubicBezierSegment
+                    Point1="44.4000019414085,6.40000014585607"
+                    Point2="44.4000019414085,10.4000001458561"
+                    Point3="48.4000019414085,10.4000001458561" />
+                  <mssgle:LineSegment
+                    End="81.3000038828169,10.4000001458561" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="147.2,41.6"
+          Id="Package\Data Flow Task\Excel Source 1"
+          TopLeft="36.0000006130764,60.5647067317501" />
+        <NodeLayout
+          Size="124.8,41.6"
+          Id="Package\Data Flow Task\DIMNGAY"
+          TopLeft="251.428575710375,75.247059878841" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Excel Source Output1]"
+          TopLeft="183.200000613076,81.3647067317501">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="68.2285750972982,14.6823531470909"
+              Start="0,0"
+              End="60.7285750972982,14.6823531470909">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="30.1142875486491,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.1142875486491,0"
+                    Point2="34.1142875486491,0"
+                    Point3="34.1142875486491,4" />
+                  <mssgle:LineSegment
+                    End="34.1142875486491,10.6823531470909" />
+                  <mssgle:CubicBezierSegment
+                    Point1="34.1142875486491,10.6823531470909"
+                    Point2="34.1142875486491,14.6823531470909"
+                    Point3="38.1142875486491,14.6823531470909" />
+                  <mssgle:LineSegment
+                    End="60.7285750972982,14.6823531470909" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="147.2,41.6"
+          Id="Package\Data Flow Task\Excel Source 2"
+          TopLeft="38.2857149377161,113.788236889955" />
+        <NodeLayout
+          Size="132.8,41.6"
+          Id="Package\Data Flow Task\DIMTHANG"
+          TopLeft="245.714289898775,125.411766464735" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Excel Source Output2]"
+          TopLeft="185.485714937716,134.588236889955">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="60.228574961059,11.6235295747803"
+              Start="0,0"
+              End="52.728574961059,11.6235295747803">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="26.1142874805295,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="26.1142874805295,0"
+                    Point2="30.1142874805295,0"
+                    Point3="30.1142874805295,4" />
+                  <mssgle:LineSegment
+                    End="30.1142874805295,7.62352957478032" />
+                  <mssgle:CubicBezierSegment
+                    Point1="30.1142874805295,7.62352957478032"
+                    Point2="30.1142874805295,11.6235295747803"
+                    Point3="34.1142874805295,11.6235295747803" />
+                  <mssgle:LineSegment
+                    End="52.728574961059,11.6235295747803" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="120,41.6"
+          Id="Package\Data Flow Task\DIMNAM"
+          TopLeft="242.285718411815,176.188237765091" />
+        <NodeLayout
+          Size="147.2,41.6"
+          Id="Package\Data Flow Task\Excel Source 3"
+          TopLeft="39.428572100036,170.07059062047" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Excel Source Output3]"
+          TopLeft="186.628572100036,193.929414192781">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="55.6571463117794,0"
+              Start="0,0"
+              End="48.1571463117794,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="48.1571463117794,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="147.2,41.6"
+          Id="Package\Data Flow Task\Excel Source 4"
+          TopLeft="37.1428577753962,226.964709065447" />
+        <NodeLayout
+          Size="155.2,41.6"
+          Id="Package\Data Flow Task\DIMTRANGTRAI"
+          TopLeft="230.857146788617,231.247062066682" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Excel Source Output4]"
+          TopLeft="184.342857775396,249.905885566065">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="46.5142890132205,0"
+              Start="0,0"
+              End="39.0142890132205,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="39.0142890132205,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="147.2,41.6"
+          Id="Package\Data Flow Task\Excel Source 5"
+          TopLeft="38.8571435188761,277.741180365803" />
+        <NodeLayout
+          Size="145.6,41.6"
+          Id="Package\Data Flow Task\DIMCUAHANG"
+          TopLeft="222.857146652377,282.6352980815" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Excel Source Output5]"
+          TopLeft="186.057143518876,300.988239223652">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="36.8000031335014,0"
+              Start="0,0"
+              End="29.3000031335014,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="29.3000031335014,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="147.2,41.6"
+          Id="Package\Data Flow Task\Excel Source 6"
+          TopLeft="49.285715125045,325.000004558002" />
+        <NodeLayout
+          Size="139.2,41.6"
+          Id="Package\Data Flow Task\DIMKHUVUC"
+          TopLeft="233.571432549126,331.117651702624" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Excel Source Output6]"
+          TopLeft="196.485715125045,348.858828130313">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="37.0857174240814,0"
+              Start="0,0"
+              End="29.5857174240814,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="29.5857174240814,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="147.2,41.6"
+          Id="Package\Data Flow Task\Excel Source 7"
+          TopLeft="27.8571433315472,377.000005287283" />
+        <NodeLayout
+          Size="104,41.6"
+          Id="Package\Data Flow Task\FACT"
+          TopLeft="230.714289643327,383.882358324982" />
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Excel Source Output7]"
+          TopLeft="175.057143331547,401.241181806132">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="55.6571463117795,0"
+              Start="0,0"
+              End="48.1571463117795,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="48.1571463117795,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Excel Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\DIMGIONG">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Excel Source 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\DIMNGAY">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Excel Source 2">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\DIMTHANG">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\DIMNAM">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Excel Source 3">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Excel Source 4">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\DIMTRANGTRAI">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Excel Source 5">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\DIMCUAHANG">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Excel Source 6">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\DIMKHUVUC">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\Excel Source 7">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Data Flow Task\FACT">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

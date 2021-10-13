@@ -1,0 +1,129 @@
+﻿<DataSourceView xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="fdd70ae2-5dee-4a6d-b400-9af4ad76ce4a" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>OLAP1 1</ID>
+  <Name>OLAP1 1</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CurrentLayout</Name>
+      <Value>_ALL_TABLES_</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:SchemaRestriction</Name>
+      <Value></Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:RetrieveRelationships</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:Layouts</Name>
+      <Value>
+        <Layouts xmlns="">
+          <Diagram>
+            <Name>_ALL_TABLES_</Name>
+            <DiagramLayout />
+            <ShowRelationshipNames>False</ShowRelationshipNames>
+            <UseDiagramDefaultLayout>True</UseDiagramDefaultLayout>
+            <DiagramViewPortLeft>0</DiagramViewPortLeft>
+            <DiagramViewPortTop>0</DiagramViewPortTop>
+            <DiagramBoundingLeft>0</DiagramBoundingLeft>
+            <DiagramBoundingTop>0</DiagramBoundingTop>
+            <DiagramZoom>100</DiagramZoom>
+          </Diagram>
+        </Layouts>
+      </Value>
+    </Annotation>
+  </Annotations>
+  <DataSourceID>OLAP1</DataSourceID>
+  <Schema>
+    <xs:schema id="OLAP1_x0020_1" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop">
+      <xs:element name="OLAP1_x0020_1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:design-time-name="44add05b-82a3-40ca-a6c6-d15bfd02e751">
+        <xs:complexType>
+          <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="dbo_FACT" msprop:design-time-name="5086b624-830e-457f-acbd-d38b8fa378e7" msprop:DbTableName="FACT" msprop:FriendlyName="FACT" msprop:DbSchemaName="dbo" msprop:TableType="Table">
+              <xs:complexType>
+                <xs:sequence>
+                  <xs:element name="MA_XUAT" msprop:design-time-name="3124c1da-fd19-42ea-b19c-5d914b14be70" msprop:DbColumnName="MA_XUAT" msprop:FriendlyName="MA_XUAT">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="MA_GIONG" msprop:design-time-name="eda6c9c0-5810-474c-a2bc-3b775fdf0b18" msprop:DbColumnName="MA_GIONG" msprop:FriendlyName="MA_GIONG" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="MA_TRANGTRAI" msprop:design-time-name="14bb3b17-c5af-4d52-b772-507d19711758" msprop:DbColumnName="MA_TRANGTRAI" msprop:FriendlyName="MA_TRANGTRAI" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="MA_KHUVUC" msprop:design-time-name="b5cb67c2-9bba-4bbd-be45-6b4745dc85e4" msprop:DbColumnName="MA_KHUVUC" msprop:FriendlyName="MA_KHUVUC" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="SANLUONG" msprop:design-time-name="17699483-bf3c-41db-ac67-a83e77e822a8" msprop:DbColumnName="SANLUONG" msprop:FriendlyName="SANLUONG" type="xs:double" minOccurs="0" />
+                  <xs:element name="DONVITINH" msprop:design-time-name="3651f6e0-8d13-495b-bab3-384fd66d62bd" msprop:DbColumnName="DONVITINH" msprop:FriendlyName="DONVITINH" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="TONGTIEN" msprop:design-time-name="afcf3c12-aeef-4a46-9337-cfab2a9a06a5" msprop:DbColumnName="TONGTIEN" msprop:FriendlyName="TONGTIEN" type="xs:double" minOccurs="0" />
+                  <xs:element name="NGAY" msprop:design-time-name="e37d9d57-01b0-432b-8f12-264d854b77c4" msprop:DbColumnName="NGAY" msprop:FriendlyName="NGAY" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="THANG" msprop:design-time-name="0159edca-3fe8-4f48-b0cd-312a04de820b" msprop:DbColumnName="THANG" msprop:FriendlyName="THANG" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="NAM" msprop:design-time-name="4315a38b-ded2-4445-bd20-7c5bed9f1c6a" msprop:DbColumnName="NAM" msprop:FriendlyName="NAM" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="255" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                  <xs:element name="MA_CUA_HANG" msprop:design-time-name="dce19b88-2c93-4958-ace3-f41d0eab10f4" msprop:DbColumnName="MA_CUA_HANG" msprop:FriendlyName="MA_CUA_HANG" minOccurs="0">
+                    <xs:simpleType>
+                      <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                      </xs:restriction>
+                    </xs:simpleType>
+                  </xs:element>
+                </xs:sequence>
+              </xs:complexType>
+            </xs:element>
+          </xs:choice>
+        </xs:complexType>
+        <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+          <xs:selector xpath=".//dbo_FACT" />
+          <xs:field xpath="MA_XUAT" />
+        </xs:unique>
+      </xs:element>
+    </xs:schema>
+    <OLAP1_x0020_1 xmlns="" />
+  </Schema>
+</DataSourceView>

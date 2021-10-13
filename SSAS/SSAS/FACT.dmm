@@ -1,0 +1,371 @@
+﻿<MiningStructure xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="d6de99f0-803b-4c0b-950a-4a2009b337ba" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>FACT</ID>
+  <Name>FACT</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:CaseTableName</Name>
+      <Value>dbo_FACT</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="2" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-12244" scrolltop="-3995" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="100" x="28390" y="12991" backcolor="16185078" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="FACT" left="20" top="0" logicalid="1" controlid="1" masterid="0" hint1="0" hint2="0" width="3863" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000170f000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_FACT" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-12244</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-3995</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="77c02154-54ee-471a-b44c-940fd5ff363a">
+    <DataSourceViewID>OLAP</DataSourceViewID>
+  </Source>
+  <Columns>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="6cfcf956-b90a-4eeb-8f7f-e17b17240a88">
+      <ID>CHATLUONG LAN1</ID>
+      <Name>CHATLUONG LAN1</Name>
+      <Type>Text</Type>
+      <Content>Discrete</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2e44ac7f-b3c2-435d-ba8d-83f7e6eb8141">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d925e9bf-fff2-41c1-8de0-8db08346dedd">
+            <TableID>dbo_FACT</TableID>
+            <ColumnID>CHATLUONG_LAN1</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="e2875a40-a53b-4cc1-991a-08a8feb8fed9">
+      <ID>CHATLUONG LAN2</ID>
+      <Name>CHATLUONG LAN2</Name>
+      <Type>Text</Type>
+      <Content>Discrete</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="095e42f9-e637-45b8-aaff-fadad306f539">
+          <DataType>WChar</DataType>
+          <DataSize>50</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="27c32b32-545c-4144-9b8d-0e9bc41a75a2">
+            <TableID>dbo_FACT</TableID>
+            <ColumnID>CHATLUONG_LAN2</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="91ffaa02-1c96-4725-812b-96b601518279">
+      <ID>MA CUA HANG</ID>
+      <Name>MA CUA HANG</Name>
+      <Type>Text</Type>
+      <Content>Discrete</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="9de19e60-f4fa-4490-899a-9b940f9a4948">
+          <DataType>WChar</DataType>
+          <DataSize>10</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="06f78618-c2f3-4a9d-892d-4017e8bc8d50">
+            <TableID>dbo_FACT</TableID>
+            <ColumnID>MA_CUA_HANG</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="5d1d57bb-ff58-4cb3-ace7-34af7ba13722">
+      <ID>MA GIONG</ID>
+      <Name>MA GIONG</Name>
+      <Type>Text</Type>
+      <Content>Discrete</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="3eb5f656-900f-4aeb-bfd0-07d14e76df6a">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="d6dab5c7-9894-4058-8eae-6a557c88f242">
+            <TableID>dbo_FACT</TableID>
+            <ColumnID>MA_GIONG</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="baafcf32-2b52-4d61-ab23-0a008ef13b27">
+      <ID>MA KHUVUC</ID>
+      <Name>MA KHUVUC</Name>
+      <Type>Text</Type>
+      <Content>Discrete</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="656b1a43-2806-4f93-a86f-06b57ba28f45">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="0afa908b-bfbb-402a-82de-9710d285fe7d">
+            <TableID>dbo_FACT</TableID>
+            <ColumnID>MA_KHUVUC</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="5b50353b-dbbe-427f-bd4a-b809be2fae18">
+      <ID>MA TRANGTRAI</ID>
+      <Name>MA TRANGTRAI</Name>
+      <Type>Text</Type>
+      <Content>Discrete</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d8b2af11-f579-434b-9610-d15942a76cd0">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="9d2d4883-3cc2-4009-aa06-1a0655b632f7">
+            <TableID>dbo_FACT</TableID>
+            <ColumnID>MA_TRANGTRAI</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="439d38eb-3992-4fde-8eec-2f9dfb380dbb">
+      <ID>MA XUAT</ID>
+      <Name>MA XUAT</Name>
+      <IsKey>true</IsKey>
+      <Type>Text</Type>
+      <Content>Key</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="5601e9e1-f01c-48c4-b5b9-e92a2b16d637">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b9998ab2-ecd7-4c30-9306-3a5d1b6fc89f">
+            <TableID>dbo_FACT</TableID>
+            <ColumnID>MA_XUAT</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="6fff369d-1516-4806-b5ba-9867b59f7b44">
+      <ID>NAM</ID>
+      <Name>NAM</Name>
+      <Type>Text</Type>
+      <Content>Discrete</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="5025f145-ba72-4f6a-90f2-4c029e8faf52">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="75fa6119-2160-40c3-9c69-f35827f0f855">
+            <TableID>dbo_FACT</TableID>
+            <ColumnID>NAM</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="a002122b-7d48-49a0-a29f-1967d5c7bf99">
+      <ID>NGAY</ID>
+      <Name>NGAY</Name>
+      <Type>Text</Type>
+      <Content>Discrete</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="fea129b6-e4c4-469a-9472-2a9d5f5b3911">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="b83afff1-985b-42b1-84c8-34632b11f8cf">
+            <TableID>dbo_FACT</TableID>
+            <ColumnID>NGAY</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+    <Column xsi:type="ScalarMiningStructureColumn" dwd:design-time-name="b1bc636e-6364-40ed-b164-df3c1f3a9976">
+      <ID>THANG</ID>
+      <Name>THANG</Name>
+      <Type>Text</Type>
+      <Content>Discrete</Content>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="6d074062-291b-440a-9f1e-7b32a20fb815">
+          <DataType>WChar</DataType>
+          <DataSize>255</DataSize>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="5df9abcc-3308-4955-aaec-933c758c6ae8">
+            <TableID>dbo_FACT</TableID>
+            <ColumnID>THANG</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+    </Column>
+  </Columns>
+  <MiningModels>
+    <MiningModel dwd:design-time-name="1068e577-e279-4a3f-9d0a-c49143a9b166">
+      <ID>FACT</ID>
+      <Name>FACT</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Algorithm>Microsoft_Decision_Trees</Algorithm>
+      <Columns>
+        <Column dwd:design-time-name="0edf621f-944a-494b-857e-214e0081b978">
+          <ID>CHATLUONG LAN1</ID>
+          <Name>CHATLUONG LAN1</Name>
+          <SourceColumnID>CHATLUONG LAN1</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="845e9a03-5b0a-49e6-bdb0-2cfa2e5d4fc9">
+          <ID>CHATLUONG LAN2</ID>
+          <Name>CHATLUONG LAN2</Name>
+          <SourceColumnID>CHATLUONG LAN2</SourceColumnID>
+          <Usage>Predict</Usage>
+        </Column>
+        <Column dwd:design-time-name="640d5e3b-8a33-4e60-8b7f-30f29227e83c">
+          <ID>MA CUA HANG</ID>
+          <Name>MA CUA HANG</Name>
+          <SourceColumnID>MA CUA HANG</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="a43be4e8-d380-4168-846b-167453fd88b1">
+          <ID>MA GIONG</ID>
+          <Name>MA GIONG</Name>
+          <SourceColumnID>MA GIONG</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="662d4ecb-a9b1-4d59-a095-5d8a6603c874">
+          <ID>MA KHUVUC</ID>
+          <Name>MA KHUVUC</Name>
+          <SourceColumnID>MA KHUVUC</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="57947f0b-edc0-493c-b066-d1901d50678b">
+          <ID>MA TRANGTRAI</ID>
+          <Name>MA TRANGTRAI</Name>
+          <SourceColumnID>MA TRANGTRAI</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="dbf047c6-b8d2-4e7b-b06e-ba3702255d1f">
+          <ID>MA XUAT</ID>
+          <Name>MA XUAT</Name>
+          <SourceColumnID>MA XUAT</SourceColumnID>
+          <Usage>Key</Usage>
+        </Column>
+        <Column dwd:design-time-name="18159279-b2ee-4dc3-a75d-dbf5e9725133">
+          <ID>NAM</ID>
+          <Name>NAM</Name>
+          <SourceColumnID>NAM</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="2f8dd06a-d767-4689-b7a1-b3063ce121ad">
+          <ID>NGAY</ID>
+          <Name>NGAY</Name>
+          <SourceColumnID>NGAY</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="056a97a8-bf92-4434-9d6e-322ef8a234d3">
+          <ID>THANG</ID>
+          <Name>THANG</Name>
+          <SourceColumnID>THANG</SourceColumnID>
+        </Column>
+      </Columns>
+    </MiningModel>
+    <MiningModel dwd:design-time-name="b2cf82e4-4cbc-4af4-a4e5-78c3d3509070">
+      <ID>ASS</ID>
+      <Name>ASS</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Algorithm>Microsoft_Association_Rules</Algorithm>
+      <Columns>
+        <Column dwd:design-time-name="6dc8bd42-db78-453b-a992-a3f4439490d4">
+          <ID>CHATLUONG LAN1</ID>
+          <Name>CHATLUONG LAN1</Name>
+          <SourceColumnID>CHATLUONG LAN1</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="3d04182b-d457-4436-b581-1ca31bfcbb99">
+          <ID>CHATLUONG LAN2</ID>
+          <Name>CHATLUONG LAN2</Name>
+          <SourceColumnID>CHATLUONG LAN2</SourceColumnID>
+          <Usage>Predict</Usage>
+        </Column>
+        <Column dwd:design-time-name="24874533-d6df-486e-9053-5de28507e259">
+          <ID>MA CUA HANG</ID>
+          <Name>MA CUA HANG</Name>
+          <SourceColumnID>MA CUA HANG</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="8569cd19-14bb-436e-8787-9267844d425c">
+          <ID>MA GIONG</ID>
+          <Name>MA GIONG</Name>
+          <SourceColumnID>MA GIONG</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="e60bdee7-8835-4fa5-8405-0c8bb19ea90b">
+          <ID>MA KHUVUC</ID>
+          <Name>MA KHUVUC</Name>
+          <SourceColumnID>MA KHUVUC</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="6f589547-dfe3-452a-a306-ff161a29b047">
+          <ID>MA TRANGTRAI</ID>
+          <Name>MA TRANGTRAI</Name>
+          <SourceColumnID>MA TRANGTRAI</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="14219a79-65f9-4e55-a523-3fc258437aaf">
+          <ID>MA XUAT</ID>
+          <Name>MA XUAT</Name>
+          <SourceColumnID>MA XUAT</SourceColumnID>
+          <Usage>Key</Usage>
+        </Column>
+        <Column dwd:design-time-name="9da603ca-9656-4de0-9e95-0ad4b6c837e7">
+          <ID>NAM</ID>
+          <Name>NAM</Name>
+          <SourceColumnID>NAM</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="071f72dd-6035-4c3d-8e24-5beb444efdcd">
+          <ID>NGAY</ID>
+          <Name>NGAY</Name>
+          <SourceColumnID>NGAY</SourceColumnID>
+        </Column>
+        <Column dwd:design-time-name="f699333a-f8a5-48b1-9022-c3f56422b504">
+          <ID>THANG</ID>
+          <Name>THANG</Name>
+          <SourceColumnID>THANG</SourceColumnID>
+        </Column>
+      </Columns>
+    </MiningModel>
+  </MiningModels>
+  <ddl100_100:HoldoutMaxPercent>30</ddl100_100:HoldoutMaxPercent>
+  <ddl100_100:HoldoutMaxCases>800</ddl100_100:HoldoutMaxCases>
+</MiningStructure>
